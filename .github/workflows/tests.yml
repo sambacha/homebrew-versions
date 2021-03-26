@@ -10,7 +10,7 @@ env:
   HOMEBREW_CHANGE_ARCH_TO_ARM: 1
 jobs:
   tap_syntax:
-    if: github.repository == 'Homebrew/homebrew-core'
+ #   if: github.repository == 'sambacha/homebrew-versions'
     runs-on: ubuntu-latest
     outputs:
       run-tests: ${{ steps.check-labels.outputs.result }}
@@ -23,7 +23,7 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
 
       - name: Cache Bundler RubyGems
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ${{ steps.set-up-homebrew.outputs.gems-path }}
           key: ${{ runner.os }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
